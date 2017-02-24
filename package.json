@@ -1,0 +1,18 @@
+{
+  "name": "web-app-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:masonwan/web-app-playground.git",
+  "author": "Mason Wan <masonwan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -w server -w public server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
