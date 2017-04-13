@@ -7,10 +7,18 @@
 	</title>
 
 	<script type="text/javascript">
+
+		window.onload = () => {
+      console.log('load')
+    }
+
+		document.addEventListener('DOMContentLoaded', () => {
+      console.info('DOMContentLoaded')
+    })
+
     console.log(`Embedded script in head`)
 
     console.log(`Delaying the page for 100 ms`)
-
     let start = Date.now()
     while (true) {
       if (Date.now() - start > 100) {
@@ -19,13 +27,15 @@
     }
 	</script>
 
-	<script type="text/javascript" src="head-script-1-async.js" async></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" onload="console.log('done');"></script>
+
+	<script type="text/javascript" src="head-script-1-async.js" async onload="console.log('load head async')"></script>
 	<script type="text/javascript" src="head-script-2-async.js" async></script>
 	<script type="text/javascript" src="head-script-3-async.js" async></script>
 	<script type="text/javascript" src="head-script-4-async.js" async></script>
 	<script type="text/javascript" src="head-script-5-async.js" async></script>
 
-	<script type="text/javascript" src="head-script-1-sync.js"></script>
+	<script type="text/javascript" src="head-script-1-sync.js" onload="console.log('load head sync')"></script>
 	<script type="text/javascript" src="head-script-2-sync.js"></script>
 	<script type="text/javascript" src="head-script-3-sync.js"></script>
 	<script type="text/javascript" src="head-script-4-sync.js"></script>
@@ -34,11 +44,17 @@
 </head>
 <body>
 
-<script type="text/javascript" src="body-script-1.js" async></script>
-<script type="text/javascript" src="body-script-2.js" async></script>
-<script type="text/javascript" src="body-script-3.js" async></script>
-<script type="text/javascript" src="body-script-4.js" async></script>
-<script type="text/javascript" src="body-script-5.js" async></script>
+<script type="text/javascript" src="body-script-sync-1.js" onload="console.log('load body sync')"></script>
+<script type="text/javascript" src="body-script-sync-2.js"</script>
+<script type="text/javascript" src="body-script-sync-3.js"></script>
+<script type="text/javascript" src="body-script-sync-4.js"></script>
+<script type="text/javascript" src="body-script-sync-5.js"></script>
+
+<script type="text/javascript" src="body-script-async-1.js" async onload="console.log('load body async')"></script>
+<script type="text/javascript" src="body-script-async-2.js" async></script>
+<script type="text/javascript" src="body-script-async-3.js" async></script>
+<script type="text/javascript" src="body-script-async-4.js" async></script>
+<script type="text/javascript" src="body-script-async-5.js" async></script>
 
 </body>
 </html>
